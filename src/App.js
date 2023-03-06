@@ -10,9 +10,8 @@ function App() {
   const [users, setUsers] = useState(userList);
   const addUserDataHandler = (user) => {
     setUsers((prevUser) => {
-      return [user, ...prevUser];
+      return [...prevUser, user];
     });
-    console.log(users);
   };
   return (
     <div className="App">
@@ -21,7 +20,7 @@ function App() {
         <Form onAddUser={addUserDataHandler} />
       </Card>
       <Card>
-        <UserList />
+        <UserList users={users} />
       </Card>
     </div>
   );

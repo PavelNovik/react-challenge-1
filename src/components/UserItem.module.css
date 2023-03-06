@@ -1,0 +1,10 @@
+.user-item {
+  width: 90%;
+  list-style: none;
+  display: flex;
+  /* justify-content: space-evenly; */
+}
+
+.user-item > .card {
+  width: 100%;
+}
