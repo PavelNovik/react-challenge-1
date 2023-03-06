@@ -1,6 +1,6 @@
 import styles from './UserList.module.css';
 
 const UserList = () => {
-  return <div className={`${styles['user-list']}`}>Hello from userList</div>;
+  return <div className={`${styles['user-list']}`}></div>;
 };
 export default UserList;
