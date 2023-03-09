@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Card from './UI/Card';
 import styles from './Form.module.css';
 
 const Form = (props) => {
@@ -14,29 +15,57 @@ const Form = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    // if (inputName.split(' ').length === 0) {
+    if (inputName.trim().length === 0) {
+      props.onError(true);
+      props.onInvalidInput();
+
+      return;
+    }
+    if (inputAge <= 0) {
+      props.onError(false);
+      props.onInvalidInput();
+
+      return;
+    }
     const newUser = {
       id: Math.random().toString(),
       name: inputName,
       age: inputAge,
     };
-    console.log(newUser);
     props.onAddUser(newUser);
+    setInputName('');
+    setInputAge('');
   };
 
   return (
-    <form className={`${styles['user-form']}`} onSubmit={submitHandler}>
-      <div className={`${styles['form-input']}`}>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" onChange={changeNameHandler} />
-      </div>
-      <div className={`${styles['form-input']}`}>
-        <label htmlFor="age">Age</label>
-        <input type="number" id="age" step={1} onChange={changeAgeHandler} />
-      </div>
-      <div className={`${styles['form-action']}`}>
-        <button type="submit">Add User</button>
-      </div>
-    </form>
+    <Card className={`${styles['user-form']}`}>
+      <form onSubmit={submitHandler}>
+        <div className={`${styles['form-input']}`}>
+          <label htmlFor="name">Name</label>
+          <input
+            autoFocus
+            type="text"
+            id="name"
+            value={inputName}
+            onChange={changeNameHandler}
+          />
+        </div>
+        <div className={`${styles['form-input']}`}>
+          <label htmlFor="age">Age</label>
+          <input
+            type="number"
+            id="age"
+            value={inputAge}
+            step={1}
+            onChange={changeAgeHandler}
+          />
+        </div>
+        <div className={`${styles['form-action']}`}>
+          <button type="submit">Add User</button>
+        </div>
+      </form>
+    </Card>
   );
 };
 export default Form;

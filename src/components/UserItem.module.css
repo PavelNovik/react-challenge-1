@@ -2,9 +2,19 @@
   width: 90%;
   list-style: none;
   display: flex;
+  margin-bottom: 20px;
   /* justify-content: space-evenly; */
 }
-
-.user-item > .card {
+.user-item:last-child {
+  margin-bottom: 0;
+}
+/* .user-item > .card {
   width: 100%;
+} */
+
+.user-description {
+  width: 100%;
+}
+.user-description h3 {
+  margin: 10px 0;
 }

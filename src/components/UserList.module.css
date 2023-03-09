@@ -1,7 +1,12 @@
 .user-list {
-  display: flex;
-  flex-direction: column;
   width: 650px;
   min-height: 30px;
-  align-items: flex-start;
+}
+
+.user-list ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
 }

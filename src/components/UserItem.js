@@ -4,12 +4,10 @@ import styles from './UserItem.module.css';
 function UserItem(props) {
   return (
     <li className={styles['user-item']}>
-      <Card>
-        <div>
-          <h2>
-            {props.name} - {props.age}
-          </h2>
-        </div>
+      <Card className={styles['user-description']}>
+        <h3>
+          {props.name} - {props.age}
+        </h3>
       </Card>
     </li>
   );
