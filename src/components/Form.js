@@ -18,13 +18,12 @@ const Form = (props) => {
     event.preventDefault();
 
     if (inputName.trim().length === 0) {
-      props.onError(true);
+      // props.onInvalidInput(true);
       props.onInvalidInput();
-
       return;
     }
     if (+inputAge < 1) {
-      props.onError(false);
+      // props.onInvalidInput(false);
       props.onInvalidInput();
       return;
     }

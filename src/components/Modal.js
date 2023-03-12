@@ -14,6 +14,7 @@ const Modal = (props) => {
   };
 
   return (
+    // Можно добавить в один внешний див модальное окно и див бэкдроп на клике на который будет событие закрыть модальное окно
     // <div className={classes}>
     <div className={`${styles['modal']}`} onClick={whatIsEvent}>
       <Card className={`${styles['modal-window']}`}>

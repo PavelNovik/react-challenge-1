@@ -10,22 +10,20 @@ import './App.css';
 function App() {
   // const [users, setUsers] = useState(userList);
   const [users, setUsers] = useState([]);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [message, setMessage] = useState(``);
+  // const [isModalVisible, setIsModalVisible] = useState(false);
+  const [error, setError] = useState();
 
   const closeModal = () => {
-    setIsModalVisible(false);
+    // setIsModalVisible(false);
+    setError();
   };
-  const openModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const errMessage = (mess) => {
-    if (mess) {
-      setMessage(['Name', 'The input fields do not be empty.']);
+  const openModal = (error) => {
+    if (error) {
+      setError(['Name', 'The input fields do not be empty.']);
     } else {
-      setMessage(['Age', 'The Age can be more then 0.']);
+      setError(['Age', 'The Age can be more then 0.']);
     }
+    // setIsModalVisible(true);
   };
 
   const addUserDataHandler = (user) => {
@@ -36,13 +34,10 @@ function App() {
 
   return (
     <div className="App">
-      {isModalVisible && <Modal message={message} onCloseBtn={closeModal} />}
+      {/* {isModalVisible && <Modal message={error} onCloseBtn={closeModal} />} */}
+      {error && <Modal message={error} onCloseBtn={closeModal} />}
 
-      <Form
-        onError={errMessage}
-        onInvalidInput={openModal}
-        onAddUser={addUserDataHandler}
-      />
+      <Form onInvalidInput={openModal} onAddUser={addUserDataHandler} />
 
       <UserList users={users} />
     </div>
