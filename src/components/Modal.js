@@ -1,5 +1,6 @@
 // import React, { useState } from 'react';
 import Card from './UI/Card';
+import Button from './UI/Button';
 import styles from './Modal.module.css';
 const Modal = (props) => {
   //   const classes = `${styles['modal']} ` + props.className;
@@ -21,9 +22,12 @@ const Modal = (props) => {
         >{`Uncorrect ${props.message[0]} input`}</div>
         <div className={`${styles['modal-body']}`}>{props.message[1]}</div>
         <div className={`${styles['modal-action']}`}>
-          <button type="button" onClick={closeModal}>
+          <Button type="button" onClick={closeModal}>
             Close Modal
-          </button>
+          </Button>
+          {/* <button type="button" onClick={closeModal}>
+            Close Modal
+          </button> */}
         </div>
       </Card>
     </div>

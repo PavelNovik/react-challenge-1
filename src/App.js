@@ -5,10 +5,11 @@ import UserList from './components/UserList';
 import Modal from './components/Modal';
 import './App.css';
 
-const userList = [];
+// const userList = [];
 
 function App() {
-  const [users, setUsers] = useState(userList);
+  // const [users, setUsers] = useState(userList);
+  const [users, setUsers] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [message, setMessage] = useState(``);
 
@@ -35,7 +36,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <h1>Hello world</h1> */}
       {isModalVisible && <Modal message={message} onCloseBtn={closeModal} />}
 
       <Form

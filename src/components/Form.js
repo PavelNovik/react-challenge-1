@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Card from './UI/Card';
+import Button from './UI/Button';
 import styles from './Form.module.css';
 
 const Form = (props) => {
@@ -15,17 +16,16 @@ const Form = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    // if (inputName.split(' ').length === 0) {
+
     if (inputName.trim().length === 0) {
       props.onError(true);
       props.onInvalidInput();
 
       return;
     }
-    if (inputAge <= 0) {
+    if (+inputAge < 1) {
       props.onError(false);
       props.onInvalidInput();
-
       return;
     }
     const newUser = {
@@ -62,7 +62,8 @@ const Form = (props) => {
           />
         </div>
         <div className={`${styles['form-action']}`}>
-          <button type="submit">Add User</button>
+          {/* <button type="submit">Add User</button> */}
+          <Button type="submit">Add User</Button>
         </div>
       </form>
     </Card>
